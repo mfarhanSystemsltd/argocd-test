@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: test-appset
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/mfarhanSystemsltd/argocd-test.git
+        revision: HEAD
+        files:
+        - path: "overlays/**/config.json"
+  template:
+    metadata:
+      name: 'app-{{namespace}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/mfarhanSystemsltd/argocd-test.git
+        targetRevision: HEAD
+        path: "overlays/{{namespace}}/"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
