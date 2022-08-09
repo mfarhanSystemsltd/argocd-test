@@ -12,7 +12,7 @@ spec:
         - path: "ACE/**/overlays/**/config.json"
   template:
     metadata:
-      name: '{{microservice}}-{{namespace}}'
+      name: 'test-{{microservice}}-{{namespace}}'
     spec:
       project: default
       source:
