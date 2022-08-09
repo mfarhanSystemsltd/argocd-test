@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ace-child
+  name: app-a
   namespace: argocd
 spec:
   generators:
@@ -12,7 +12,7 @@ spec:
         - path: "ACE/**/overlays/**/config.json"
   template:
     metadata:
-      name: 'test-{{microservice}}-{{namespace}}'
+      name: '{{microservice}}-{{namespace}}'
     spec:
       project: default
       source:
