@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: qa-namespace-deployments
+  name: oms-ace-applicationset
   namespace: argocd
 spec:
   generators:
