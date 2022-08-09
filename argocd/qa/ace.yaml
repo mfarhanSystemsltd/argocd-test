@@ -12,7 +12,7 @@ spec:
         - path: "ACE/argocd/**/config.json"
   template:
     metadata:
-      name: '{{microservice}}-{{namespace}}'
+      name: 'parent-{{namespace}}'
     spec:
       project: default
       source:
