@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ace-parent
+  name: ace-child
   namespace: argocd
 spec:
   generators:
@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/mfarhanSystemsltd/argocd-test.git
         revision: HEAD
         files:
-        - path: "ACE/argocd/**/config.json"
+        - path: "ACE/**/overlays/**/config.json"
   template:
     metadata:
       name: '{{microservice}}-{{namespace}}'
@@ -18,7 +18,7 @@ spec:
       source:
         repoURL: https://github.com/mfarhanSystemsltd/argocd-test.git
         targetRevision: HEAD
-        path: "ACE/argocd/{{namespace}}"
+        path: "ACE/{{microservice}}/overlays/{{namespace}}/"
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
