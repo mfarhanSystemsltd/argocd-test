@@ -1,4 +1,4 @@
 {
-    "namespace": "qa",
-    "microservice": "app-b"
+    "namespace": "qa1",
+    "microservice": "app-a"
 }
